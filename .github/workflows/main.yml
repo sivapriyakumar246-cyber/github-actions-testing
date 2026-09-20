@@ -1,0 +1,19 @@
+name: Failing CI Test
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run tests
+        run: pytest test_sample.py
